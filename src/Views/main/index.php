@@ -1,3 +1,8 @@
 <p>Главная страница</p>
-<p>Имя: <?= $name?></p>
-<p>Возраст: <?= $age?></p>
+<?php  foreach ($products as $product): ?>
+
+<p> <?= $product['title']?> </p>
+<p> <?= $product['text']?> </p>
+<hr>
+
+<?php endforeach; ?>

@@ -3,16 +3,20 @@
 namespace Drakosha\Shop\Controllers;
 
 use Drakosha\Shop\Core\Controller;
+use Drakosha\Shop\Lib\Db;
 
 class MainController extends Controller
 {
 
     public function indexAction()
     {
+        $result = $this->model->getProducts();
+
+
         $vars = [
-            'name' => 'Вася',
-            'age' => 3
+            'products' => $result
         ];
+        
         $this->view->render('Главная страница', $vars);
     }
 

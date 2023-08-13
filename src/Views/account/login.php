@@ -1,9 +1,9 @@
 <h3>Вход</h3>
-<form>
+<form method="post">
     <label>Логин</label>
-    <input type="text">
+    <input type="text" name="login">
     <label>Пароль</label>
-    <input type="password">
+    <input type="password" name="password">
 
-    <input type="submit" value="Войти">
+    <input type="submit" name="submit" value="Войти">
 </form>
