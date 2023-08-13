@@ -1,9 +1,9 @@
 <?php
 
 require 'vendor/autoload.php';
-require 'src/App/Lib/Develop.php';
+require 'src/Lib/Develop.php';
 
-use Drakosha\Shop\App\Core\Router;
+use Drakosha\Shop\Core\Router;
 
 session_start();
 

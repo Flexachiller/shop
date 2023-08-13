@@ -1,6 +1,6 @@
 <?php
 
-namespace Drakosha\Shop\App\Lib;
+namespace Drakosha\Shop\Lib;
 
 class Db
 {

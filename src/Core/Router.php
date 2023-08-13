@@ -1,6 +1,6 @@
 <?php
 
-namespace Drakosha\Shop\App\Core;
+namespace Drakosha\Shop\Core;
 
 class Router
 {
@@ -9,8 +9,8 @@ class Router
 
     public function __construct()
     {
-        $arr = require 'src\\App\\Config\\routes.php';
-        
+        $arr = require 'src\\Config\\routes.php';
+
         foreach($arr as $key => $value)
         {
             $this->add($key, $value);
@@ -43,19 +43,32 @@ class Router
     {
         if($this->check())
         {
-            $controller = 'App\\Controllers\\' . ucfirst($this->params['controller']) . 'Controller.php';
-            if(class_exists($controller))
+            $path = 'Drakosha\\Shop\\Controllers\\' . ucfirst($this->params['controller']) . 'Controller';
+            if(class_exists($path))
             {
-                //
+                $action = $this->params['action'] . 'Action';
+
+                if(method_exists($path, $action))
+                {
+                    $controller = new $path($this->params);
+                    $controller->$action();
+                }
+                else
+                {
+                    echo 'Не найден action ' . $action;
+                    die();
+                }
             }
             else
             {
-                echo '404';
+                echo 'Не найден controller ' . $path;
+                die();
             }
         }
         else
         {
-            echo '404';
+            echo 'Не найден маршрут';
+            die();
         }
         
     }
