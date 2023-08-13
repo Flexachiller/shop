@@ -55,20 +55,17 @@ class Router
                 }
                 else
                 {
-                    echo 'Не найден action ' . $action;
-                    die();
+                    View::errorCode(404);
                 }
             }
             else
             {
-                echo 'Не найден controller ' . $path;
-                die();
+                View::errorCode(404);
             }
         }
         else
         {
-            echo 'Не найден маршрут';
-            die();
+            View::errorCode(404);
         }
         
     }
